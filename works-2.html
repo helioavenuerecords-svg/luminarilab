@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luminari Lab — Published Works</title>
+<link rel="stylesheet" href="shared.css">
+<style>
+.works-hero {
+  padding: 140px 52px 80px;
+  position: relative; z-index: 5;
+  border-bottom: 1px solid var(--soft-border);
+}
+.works-hero-inner {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: end;
+}
+.works-hero .s-title { font-size: clamp(3rem, 6vw, 6rem); }
+.works-hero-right p { font-size: 0.8rem; color: var(--mist); line-height: 2; }
+
+.works-section {
+  position: relative; z-index: 5;
+  padding: 100px 52px;
+}
+
+.work-entry {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 72px;
+  align-items: center;
+  padding-bottom: 100px;
+  border-bottom: 1px solid var(--soft-border);
+  margin-bottom: 100px;
+}
+
+.work-graphic {
+  position: relative; border-radius: 20px; overflow: hidden;
+  background: #f8f6f2;
+  display: flex; align-items: center; justify-content: center;
+  min-height: 500px;
+}
+.work-graphic img {
+  width: 100%; height: 100%; object-fit: contain;
+  padding: 32px;
+}
+
+.work-text-side { display: flex; flex-direction: column; gap: 32px; }
+
+.work-meta-top {
+  display: flex; flex-direction: column; gap: 8px;
+}
+.work-cycle-tag {
+  font-size: 0.6rem; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--lavender); display: flex; align-items: center; gap: 10px;
+}
+.work-cycle-tag::before { content:''; width: 28px; height: 1px; background: rgba(155,132,204,0.4); }
+.work-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 300;
+  line-height: 1.1; color: var(--cream);
+}
+.work-title em { font-style: italic; color: var(--glow); }
+
+.poem-body {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.05rem; font-weight: 300;
+  color: var(--mist); line-height: 2.1;
+  border-left: 1px solid rgba(184,157,232,0.3);
+  padding-left: 28px;
+  white-space: pre-line;
+}
+.poem-body em { color: var(--cream); font-style: italic; }
+
+.work-artist-strip {
+  display: flex; align-items: center; gap: 20px;
+  padding: 20px 24px;
+  background: var(--card-bg); border: 1px solid var(--soft-border);
+  border-radius: 12px;
+}
+.work-artist-avatar {
+  width: 48px; height: 48px; border-radius: 50%; flex-shrink: 0;
+  background: linear-gradient(135deg, var(--violet), var(--sky));
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; color: var(--cream);
+}
+.work-artist-info { flex: 1; }
+.work-artist-name {
+  font-family: 'Cormorant Garamond', serif; font-size: 1.05rem;
+  color: var(--cream); margin-bottom: 3px;
+}
+.work-artist-handle {
+  font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--lavender);
+}
+.work-artist-link {
+  font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--lavender); text-decoration: none;
+  transition: color 0.2s;
+}
+.work-artist-link:hover { color: var(--glow); }
+
+/* COMING SOON SECTION */
+.coming-soon-strip {
+  position: relative; z-index: 5;
+  margin: 0 52px 100px;
+  border: 1px solid var(--soft-border);
+  border-radius: 24px; padding: 72px 64px;
+  text-align: center;
+}
+.coming-soon-strip h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.8rem, 3.5vw, 3rem); font-weight: 300; margin-bottom: 16px;
+}
+.coming-soon-strip h2 em { font-style: italic; color: var(--glow); }
+.coming-soon-strip p { font-size: 0.78rem; color: var(--mist); line-height: 2; max-width: 480px; margin: 0 auto 32px; }
+
+@media (max-width: 900px) {
+  .works-hero { padding: 120px 24px 60px; }
+  .works-hero-inner { grid-template-columns: 1fr; gap: 32px; }
+  .works-section { padding: 60px 24px; }
+  .work-entry { grid-template-columns: 1fr; gap: 40px; }
+  .coming-soon-strip { margin: 0 24px 60px; padding: 48px 28px; }
+}
+</style>
+</head>
+<body>
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+<div class="starfield" id="starfield"></div>
+<div class="orb orb-1"></div><div class="orb orb-2"></div><div class="orb orb-3"></div>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <div class="logo-icon">✦</div>
+    <span class="logo-text">Luminari Lab</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="cycles.html">Cycles</a></li>
+    <li><a href="artists.html">Artists</a></li>
+    <li><a href="works.html" class="active">Published Works</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="submit.html" class="nav-cta">Submit Work</a></li>
+  </ul>
+</nav>
+
+<div class="page">
+
+  <!-- HERO -->
+  <section class="works-hero">
+    <div class="works-hero-inner">
+      <div>
+        <div class="s-label">Published Works</div>
+        <h1 class="s-title">Words, sound & <em>vision.</em></h1>
+      </div>
+      <div class="works-hero-right">
+        <p>Every work published here has been selected through Luminari Lab's creative cycles — curated for artistic merit, cultural authenticity, and intentional storytelling.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORK ENTRY -->
+  <section class="works-section">
+    <div class="work-entry reveal">
+
+      <!-- GRAPHIC SIDE -->
+      <div class="work-graphic">
+        <img src="1000681073.jpg" alt="Afronaut illustration — two astronauts in space suits" />
+      </div>
+
+      <!-- POEM SIDE -->
+      <div class="work-text-side">
+        <div class="work-meta-top">
+          <div class="work-cycle-tag">Cycle 01 · Afronaut · Poetry</div>
+          <div class="work-title">Darlin<em>.</em></div>
+        </div>
+
+        <div class="poem-body">Saw you from a galaxy away
+In a time in space where pain doesn't take place
+Floated by through the milky way and swore to take your breath away
+
+You say I'm calming so Prince Charming
+"Boy's too good, too dang alarming"
+
+But baby we're all instruments so tell me what your heart is strumming
+Darlin
+I would float through endless space for you
+Pull me closer ever closer let me melt right into you
+I said
+Darlin
+
+I would take my time
+Crafting every single word and making every rhyme.
+I take every beat and bar
+Cause that's my star.</div>
+
+        <div class="work-artist-strip">
+          <div class="work-artist-avatar">K</div>
+          <div class="work-artist-info">
+            <div class="work-artist-name">KC Njobvu</div>
+            <div class="work-artist-handle">KC Ilgtmt · Copperbelt, Zambia</div>
+          </div>
+          <a href="artists.html" class="work-artist-link">View Artist →</a>
+        </div>
+
+        <!-- DOWNLOAD + PURCHASE -->
+        <div style="display:flex;flex-direction:column;gap:10px;margin-top:8px;">
+          <a href="darlin_by_kc_njobvu.pdf" download class="btn btn-ghost" style="text-align:center;">⬇ Download Free PDF</a>
+          <a href="mailto:Luminarilab@proton.me?subject=Physical Copy — Darlin. by KC Njobvu&body=Hi, I would like to enquire about purchasing a physical copy of 'Darlin.' by KC Njobvu." class="btn btn-fill" style="text-align:center;">✦ Enquire About Physical Copy</a>
+        </div>
+        <p style="font-size:0.62rem;color:var(--mist);line-height:1.8;margin-top:8px;">Want a printed copy? Email us and we'll make it happen. Pricing discussed on enquiry. Artist receives 90% of proceeds.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- MORE COMING SOON -->
+  <div class="coming-soon-strip">
+    <h2>More works <em>on the way.</em></h2>
+    <p>We are actively curating submissions from our first cycle. New works will be published here as each cycle progresses.</p>
+    <a href="submit.html" class="btn btn-fill">Submit Your Work →</a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-brand">
+      <div style="display:flex;align-items:center;gap:12px;">
+        <div class="logo-icon">✦</div>
+        <span class="logo-text">Luminari Lab</span>
+      </div>
+      <p>A structured creative incubation platform for emerging Zambian artists. By Helio Avenue Records, Lusaka.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navigate</h4>
+      <a href="about.html">About</a>
+      <a href="cycles.html">Cycles</a>
+      <a href="artists.html">Artists</a>
+      <a href="works.html">Published Works</a>
+    </div>
+    <div class="footer-col">
+      <h4>Connect</h4>
+      <a href="submit.html">Submit Work</a>
+      <a href="contact.html">Contact & Partnerships</a>
+      <a href="#">@luminarilab</a>
+      <a href="#">Helio Avenue Records</a>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Luminari Lab / Helio Avenue Records · Lusaka, Zambia</span>
+      <span>Artistic excellence and participant safety, equally upheld.</span>
+    </div>
+  </footer>
+</div>
+
+<script src="shared.js"></script>
+</body>
+</html>

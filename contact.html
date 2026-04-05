@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luminari Lab — Contact & Partnerships</title>
+<link rel="stylesheet" href="shared.css">
+<style>
+.contact-hero {
+  padding: 140px 52px 80px;
+  position: relative; z-index: 5;
+  border-bottom: 1px solid var(--soft-border);
+}
+.contact-hero .s-title { font-size: clamp(3rem, 6vw, 6rem); max-width: 700px; }
+.contact-hero p { font-size: 0.8rem; color: var(--mist); line-height: 2; max-width: 460px; margin-top: 20px; }
+
+.contact-main {
+  position: relative; z-index: 5;
+  padding: 72px 52px 100px;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 80px;
+}
+
+.contact-form-title { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 300; margin-bottom: 36px; }
+
+.contact-send-btn {
+  width: 100%; padding: 16px;
+  background: rgba(184,157,232,0.12);
+  border: 1px solid rgba(184,157,232,0.4);
+  border-radius: 12px; color: var(--cream);
+  font-family: 'DM Mono', monospace;
+  font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase;
+  cursor: pointer; transition: all 0.25s;
+}
+.contact-send-btn:hover { background: rgba(184,157,232,0.22); border-color: var(--glow); }
+
+/* Inquiry type */
+.inquiry-types { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 4px; }
+.inq-btn {
+  background: transparent; border: 1px solid var(--soft-border);
+  color: var(--mist); padding: 7px 16px; border-radius: 100px;
+  font-family: 'DM Mono', monospace; font-size: 0.62rem;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  cursor: pointer; transition: all 0.2s;
+}
+.inq-btn:hover { border-color: var(--glow); color: var(--cream); }
+.inq-btn.active { background: rgba(184,157,232,0.12); border-color: var(--glow); color: var(--cream); }
+
+/* Right sidebar */
+.contact-info {}
+.contact-info-title { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 300; margin-bottom: 36px; }
+
+.contact-channel {
+  display: flex; gap: 20px; padding: 24px 0;
+  border-bottom: 1px solid var(--soft-border);
+  transition: all 0.2s; cursor: default;
+}
+.contact-channel:first-of-type { border-top: 1px solid var(--soft-border); }
+.contact-channel:hover .cc-title { color: var(--glow); }
+.cc-icon { width: 44px; height: 44px; border-radius: 10px;
+  background: var(--card-bg); border: 1px solid var(--soft-border);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.1rem; flex-shrink: 0; transition: border-color 0.2s;
+}
+.contact-channel:hover .cc-icon { border-color: rgba(184,157,232,0.3); }
+.cc-title { font-size: 0.78rem; color: var(--cream); margin-bottom: 4px; transition: color 0.2s; }
+.cc-detail { font-size: 0.68rem; color: var(--lavender); }
+
+/* Partnership types */
+.partnership-section {
+  position: relative; z-index: 5;
+  padding: 0 52px 100px;
+  border-top: 1px solid var(--soft-border);
+}
+.partnership-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; margin-top: 48px; }
+.partnership-card {
+  background: var(--card-bg); border: 1px solid var(--soft-border);
+  border-radius: 16px; padding: 36px 28px;
+  transition: all 0.3s;
+}
+.partnership-card:hover { border-color: rgba(184,157,232,0.35); transform: translateY(-4px); }
+.p-icon { font-size: 2rem; margin-bottom: 20px; opacity: 0.8; }
+.p-title { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; margin-bottom: 10px; }
+.p-desc { font-size: 0.7rem; color: var(--mist); line-height: 1.9; margin-bottom: 20px; }
+.p-link { font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--lavender); cursor: pointer; transition: color 0.2s; }
+.p-link:hover { color: var(--glow); }
+
+/* Helio Avenue callout */
+.helio-callout {
+  position: relative; z-index: 5;
+  margin: 0 52px 0;
+  border: 1px solid var(--soft-border);
+  border-radius: 24px; padding: 64px;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
+  background: radial-gradient(ellipse at 30% 50%, rgba(107,82,163,0.15) 0%, transparent 60%);
+  overflow: hidden;
+}
+.helio-callout::before {
+  content:''; position:absolute; left:-1px; top:20%; bottom:20%;
+  width:1px; left:auto; right:auto;
+  background: linear-gradient(to bottom, transparent, var(--lavender), transparent);
+  left: 0; top: 0; bottom: 0; width: 1px;
+  background: linear-gradient(to bottom, transparent, rgba(184,157,232,0.4), transparent);
+}
+.helio-label { font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--lavender); margin-bottom: 14px; }
+.helio-title { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; font-weight: 300; margin-bottom: 16px; }
+.helio-desc { font-size: 0.78rem; color: var(--mist); line-height: 2; }
+.helio-services { margin-top: 28px; }
+.helio-service {
+  display: flex; gap: 12px; font-size: 0.7rem; color: var(--mist);
+  padding: 10px 0; border-bottom: 1px solid var(--soft-border); line-height: 1.5;
+}
+.helio-service:last-child { border-bottom: none; }
+.helio-service::before { content: '→'; color: var(--lavender); flex-shrink: 0; }
+
+/* Success toast */
+.toast {
+  position: fixed; bottom: 40px; left: 50%; transform: translateX(-50%) translateY(80px);
+  background: rgba(184,157,232,0.15); backdrop-filter: blur(20px);
+  border: 1px solid rgba(184,157,232,0.4); border-radius: 100px;
+  padding: 14px 28px; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--cream); z-index: 200;
+  transition: transform 0.4s cubic-bezier(0.23,1,0.32,1), opacity 0.4s;
+  opacity: 0;
+}
+.toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+
+@media (max-width: 900px) {
+  .contact-hero, .partnership-section { padding-left: 24px; padding-right: 24px; }
+  .contact-main { grid-template-columns: 1fr; padding: 48px 24px 60px; }
+  .partnership-grid { grid-template-columns: 1fr; }
+  .helio-callout { grid-template-columns: 1fr; margin: 0 24px; padding: 40px 28px; }
+}
+</style>
+</head>
+<body>
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+<div class="starfield" id="starfield"></div>
+<div class="orb orb-1"></div><div class="orb orb-2"></div><div class="orb orb-3"></div>
+<div class="toast" id="toast">✦ Message received — we'll be in touch</div>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <div class="logo-icon">✦</div>
+    <span class="logo-text">Luminari Lab</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="cycles.html">Cycles</a></li>
+    <li><a href="artists.html">Artists</a></li>
+    <li><a href="works.html">Published Works</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="submit.html" class="nav-cta">Submit Work</a></li>
+  </ul>
+</nav>
+
+<div class="page">
+  <section class="contact-hero">
+    <div class="s-label">Get In Touch</div>
+    <h1 class="s-title">Let's build something <em>together.</em></h1>
+    <p>Whether you're an artist, sponsor, collaborator, or cultural institution — Luminari Lab is open to meaningful partnerships that serve Zambia's creative community.</p>
+  </section>
+
+  <div class="contact-main">
+    <div>
+      <div class="contact-form-title">Send a Message</div>
+
+      <div class="form-group">
+        <label class="form-label">Inquiry Type</label>
+        <div class="inquiry-types">
+          <button class="inq-btn active" onclick="setInq(this)">General</button>
+          <button class="inq-btn" onclick="setInq(this)">Partnership</button>
+          <button class="inq-btn" onclick="setInq(this)">Sponsorship</button>
+          <button class="inq-btn" onclick="setInq(this)">Media</button>
+          <button class="inq-btn" onclick="setInq(this)">Other</button>
+        </div>
+      </div>
+
+      <div style="height:20px;"></div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+        <div class="form-group">
+          <label class="form-label">Name / Organisation</label>
+          <input type="text" class="form-input" placeholder="Your name or org">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email Address</label>
+          <input type="email" class="form-input" placeholder="your@email.com">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Subject</label>
+        <input type="text" class="form-input" placeholder="What's this about?">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Your Message</label>
+        <textarea class="form-textarea" style="min-height:180px;" placeholder="Tell us about your idea, proposal, or question…"></textarea>
+      </div>
+      <button class="contact-send-btn" onclick="sendMessage()">Send Message →</button>
+      <input type="hidden" id="inq-type" value="General">
+    </div>
+
+    <div class="contact-info">
+      <div class="contact-info-title">Find Us</div>
+
+      <div class="contact-channel">
+        <div class="cc-icon">✦</div>
+        <div>
+          <div class="cc-title">Instagram</div>
+          <div class="cc-detail">@luminarilab</div>
+        </div>
+      </div>
+      <div class="contact-channel">
+        <div class="cc-icon">✉</div>
+        <div>
+          <div class="cc-title">Email</div>
+          <div class="cc-detail"><a href="mailto:Luminarilab@proton.me" style="color:var(--lavender);text-decoration:none;">Luminarilab@proton.me</a></div>
+        </div>
+      </div>
+      <div class="contact-channel">
+        <div class="cc-icon">◎</div>
+        <div>
+          <div class="cc-title">Location</div>
+          <div class="cc-detail">Lusaka, Zambia</div>
+        </div>
+      </div>
+      <div class="contact-channel">
+        <div class="cc-icon">♪</div>
+        <div>
+          <div class="cc-title">Helio Avenue Records</div>
+          <div class="cc-detail">Parent label — artist services available</div>
+        </div>
+      </div>
+
+      <div style="margin-top:40px;padding:28px;background:var(--card-bg);border:1px solid var(--soft-border);border-radius:16px;">
+        <div style="font-size:0.65rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--lavender);margin-bottom:12px;">Response Time</div>
+        <p style="font-size:0.75rem;color:var(--mist);line-height:1.8;">We aim to respond to all inquiries within <span style="color:var(--cream);">5–7 business days</span>. For urgent matters, please note "URGENT" in your subject line.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Partnership types -->
+  <section class="partnership-section" style="padding-top:80px;">
+    <div class="s-label">Partnership Opportunities</div>
+    <h2 class="s-title">Ways to <em>collaborate</em></h2>
+    <div class="partnership-grid">
+      <div class="partnership-card reveal">
+        <div class="p-icon">◼</div>
+        <div class="p-title">Cycle Sponsorship</div>
+        <p class="p-desc">Co-present a Thematic or Open Lab Cycle. Your brand is aligned with authentic Zambian creative output and a professional, safety-first platform.</p>
+        <div class="p-link" onclick="document.querySelector('.form-input').focus()">Enquire →</div>
+      </div>
+      <div class="partnership-card reveal">
+        <div class="p-icon">⊕</div>
+        <div class="p-title">Creative Institution</div>
+        <p class="p-desc">Schools, universities, NGOs, and cultural institutions — let's build programmes that serve emerging artists across Zambia together.</p>
+        <div class="p-link" onclick="document.querySelector('.form-input').focus()">Enquire →</div>
+      </div>
+      <div class="partnership-card reveal">
+        <div class="p-icon">★</div>
+        <div class="p-title">Event & Brand Collaboration</div>
+        <p class="p-desc">Pop-ups, showcases, listening events, and brand activations rooted in intentional creative culture. We design experiences that resonate.</p>
+        <div class="p-link" onclick="document.querySelector('.form-input').focus()">Enquire →</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Helio Avenue -->
+  <div class="helio-callout">
+    <div>
+      <div class="helio-label">Parent Label</div>
+      <div class="helio-title">Helio Avenue <em style="font-style:italic;color:var(--glow);">Records</em></div>
+      <p class="helio-desc">Luminari Lab is an initiative of Helio Avenue Records — an independent, artist-first label dedicated to crafting intentional, experimental, and culturally rich music from Lusaka.</p>
+      <div style="margin-top:24px;">
+        <a href="contact.html" class="btn btn-ghost" style="font-size:0.62rem;">Learn More →</a>
+      </div>
+    </div>
+    <div>
+      <div class="helio-services">
+        <div class="helio-service">Music Production & Sound Engineering</div>
+        <div class="helio-service">Creative Direction & Visual Branding</div>
+        <div class="helio-service">Music Distribution via Amuse</div>
+        <div class="helio-service">Marketing & PR Support</div>
+        <div class="helio-service">Event Curation & Immersive Experiences</div>
+        <div class="helio-service">Independent Artist Consultation</div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-brand">
+      <div style="display:flex;align-items:center;gap:12px;">
+        <div class="logo-icon">✦</div><span class="logo-text">Luminari Lab</span>
+      </div>
+      <p>A structured creative incubation platform for emerging Zambian artists. By Helio Avenue Records, Lusaka.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navigate</h4>
+      <a href="about.html">About</a><a href="cycles.html">Cycles</a>
+      <a href="artists.html">Artists</a><a href="works.html">Published Works</a>
+    </div>
+    <div class="footer-col">
+      <h4>Connect</h4>
+      <a href="submit.html">Submit Work</a><a href="contact.html">Contact & Partnerships</a>
+      <a href="#">@luminarilab</a>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Luminari Lab / Helio Avenue Records · Lusaka, Zambia</span>
+      <span>Artistic excellence and participant safety, equally upheld.</span>
+    </div>
+  </footer>
+</div>
+
+<script src="shared.js"></script>
+<script>
+function setInq(btn) {
+  document.querySelectorAll('.inq-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('inq-type').value = btn.textContent;
+}
+
+async function sendMessage() {
+  const inputs = document.querySelectorAll('.form-input');
+  const textarea = document.querySelector('.form-textarea');
+  const name = inputs[0].value.trim();
+  const email = inputs[1].value.trim();
+  const subject = inputs[2].value.trim();
+  const message = textarea.value.trim();
+  const inquiryType = document.getElementById('inq-type').value;
+
+  if (!name || !email || !message) {
+    alert('Please fill in your name, email, and message.');
+    return;
+  }
+
+  const btn = document.querySelector('.contact-send-btn');
+  btn.textContent = 'Sending…';
+  btn.disabled = true;
+
+  try {
+    const res = await fetch('https://formspree.io/f/xojppebp', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name, email, subject, message, inquiryType })
+    });
+
+    if (res.ok) {
+      // Show toast
+      const toast = document.getElementById('toast');
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 4000);
+      // Clear fields
+      inputs.forEach(i => i.value = '');
+      textarea.value = '';
+      btn.textContent = 'Send Message →';
+      btn.disabled = false;
+    } else {
+      throw new Error('Failed');
+    }
+  } catch {
+    alert('Something went wrong. Please email us directly at Luminarilab@proton.me');
+    btn.textContent = 'Send Message →';
+    btn.disabled = false;
+  }
+}
+</script>
+</body>
+</html>

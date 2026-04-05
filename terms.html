@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luminari Lab — Terms & Conditions</title>
+<link rel="stylesheet" href="shared.css">
+<style>
+.terms-hero {
+  padding: 140px 52px 80px;
+  position: relative; z-index: 5;
+  border-bottom: 1px solid var(--soft-border);
+}
+.terms-hero .s-title { font-size: clamp(3rem, 6vw, 5rem); }
+.terms-hero p { font-size: 0.78rem; color: var(--mist); line-height: 2; max-width: 560px; margin-top: 20px; }
+
+.terms-body {
+  position: relative; z-index: 5;
+  padding: 80px 52px 120px;
+  display: grid; grid-template-columns: 200px 1fr; gap: 80px;
+  align-items: start;
+}
+
+/* Sticky sidebar nav */
+.terms-nav {
+  position: sticky; top: 120px;
+  display: flex; flex-direction: column; gap: 4px;
+}
+.terms-nav a {
+  font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--mist); text-decoration: none; padding: 8px 0;
+  border-left: 1px solid var(--soft-border);
+  padding-left: 16px; transition: all 0.2s;
+}
+.terms-nav a:hover { color: var(--cream); border-left-color: var(--glow); }
+
+/* Terms content */
+.terms-content { display: flex; flex-direction: column; gap: 60px; }
+
+.terms-section {}
+.terms-section-num {
+  font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--lavender); margin-bottom: 12px;
+  display: flex; align-items: center; gap: 12px;
+}
+.terms-section-num::after { content:''; flex:1; height:1px; background:var(--soft-border); }
+.terms-section h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.8rem; font-weight: 300; color: var(--cream);
+  margin-bottom: 20px;
+}
+.terms-section p {
+  font-size: 0.78rem; color: var(--mist); line-height: 2.1; margin-bottom: 14px;
+}
+.terms-section p strong { color: var(--cream); }
+.terms-list {
+  display: flex; flex-direction: column; gap: 12px;
+  margin: 16px 0;
+}
+.terms-list-item {
+  display: flex; gap: 14px;
+  font-size: 0.75rem; color: var(--mist); line-height: 1.9;
+  padding: 14px 18px;
+  background: var(--card-bg); border: 1px solid var(--soft-border);
+  border-radius: 10px;
+}
+.terms-list-item::before { content: '→'; color: var(--lavender); flex-shrink: 0; margin-top: 2px; }
+.terms-list-item strong { color: var(--cream); display: block; margin-bottom: 2px; }
+
+.terms-highlight {
+  background: rgba(184,157,232,0.06);
+  border: 1px solid rgba(184,157,232,0.2);
+  border-radius: 12px; padding: 24px 28px;
+  margin: 20px 0;
+  font-size: 0.75rem; color: var(--mist); line-height: 2;
+}
+.terms-highlight strong { color: var(--cream); }
+
+.terms-updated {
+  font-size: 0.62rem; color: var(--lavender);
+  letter-spacing: 0.1em; text-transform: uppercase;
+  margin-top: 60px; padding-top: 32px;
+  border-top: 1px solid var(--soft-border);
+}
+
+@media (max-width: 900px) {
+  .terms-hero { padding: 120px 24px 60px; }
+  .terms-body { grid-template-columns: 1fr; padding: 48px 24px 80px; gap: 40px; }
+  .terms-nav { position: static; flex-direction: row; flex-wrap: wrap; }
+}
+</style>
+</head>
+<body>
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+<div class="starfield" id="starfield"></div>
+<div class="orb orb-1"></div><div class="orb orb-2"></div><div class="orb orb-3"></div>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <div class="logo-icon">✦</div>
+    <span class="logo-text">Luminari Lab</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="cycles.html">Cycles</a></li>
+    <li><a href="artists.html">Artists</a></li>
+    <li><a href="works.html">Published Works</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="submit.html" class="nav-cta">Submit Work</a></li>
+  </ul>
+</nav>
+
+<div class="page">
+
+  <section class="terms-hero">
+    <div class="s-label">Legal</div>
+    <h1 class="s-title">Terms & <em>Conditions</em></h1>
+    <p>By submitting work to or joining Luminari Lab as a member, you agree to the following terms. Please read them carefully. These terms exist to protect both you and the platform.</p>
+  </section>
+
+  <div class="terms-body">
+
+    <!-- SIDEBAR NAV -->
+    <nav class="terms-nav">
+      <a href="#about">About the Platform</a>
+      <a href="#submissions">Submissions</a>
+      <a href="#ownership">Ownership</a>
+      <a href="#membership">Membership</a>
+      <a href="#sales">Sales & Commission</a>
+      <a href="#music">Music</a>
+      <a href="#ai-policy">AI Policy</a>
+      <a href="#conduct">Code of Conduct</a>
+      <a href="#contact-terms">Contact</a>
+    </nav>
+
+    <!-- CONTENT -->
+    <div class="terms-content">
+
+      <!-- 01 -->
+      <div class="terms-section" id="about">
+        <div class="terms-section-num">01</div>
+        <h2>About the Platform</h2>
+        <p>Luminari Lab is a creative promotion and exhibition platform operated by <strong>Helio Avenue Records</strong>, a registered creative business based in Lusaka, Zambia. Luminari Lab exists to promote, exhibit, and support emerging Zambian artists across music, visual art, writing, and related disciplines.</p>
+        <p>Luminari Lab is <strong>not a production house</strong>. We curate, promote and exhibit. Production services are handled separately through Helio Avenue Records.</p>
+      </div>
+
+      <!-- 02 -->
+      <div class="terms-section" id="submissions">
+        <div class="terms-section-num">02</div>
+        <h2>Submissions</h2>
+        <p>Submissions to Luminari Lab are open to all creatives based in Zambia. By submitting your work you agree to the following:</p>
+        <div class="terms-list">
+          <div class="terms-list-item"><div><strong>Merit-based selection.</strong> All submissions are evaluated solely on creative quality and relevance to the cycle. Selection is never transactional.</div></div>
+          <div class="terms-list-item"><div><strong>No guarantee of publication.</strong> Submitting your work does not guarantee it will be displayed or promoted. The Luminari Lab team makes all curatorial decisions.</div></div>
+          <div class="terms-list-item"><div><strong>Confidentiality.</strong> All submitted work and personal information is held in strict confidence and never shared without your consent.</div></div>
+          <div class="terms-list-item"><div><strong>Originality.</strong> You confirm that the work you submit is your own original creation and that you hold full rights to it.</div></div>
+          <div class="terms-list-item"><div><strong>No exploitation.</strong> Luminari Lab will never use your submitted work for commercial purposes beyond the agreed promotion without your explicit written consent.</div></div>
+        </div>
+      </div>
+
+      <!-- 03 -->
+      <div class="terms-section" id="ownership">
+        <div class="terms-section-num">03</div>
+        <h2>Ownership & Rights</h2>
+        <div class="terms-highlight">
+          <strong>Artists retain 100% ownership of all work submitted to Luminari Lab.</strong> Always. We do not claim any rights, licences, or ownership over your creative work by virtue of it being displayed on this platform.
+        </div>
+        <p>By submitting your work for display, you grant Luminari Lab a <strong>non-exclusive, royalty-free licence</strong> to display, promote and share your work for the purposes of exhibition and promotion on this platform and its associated social media channels.</p>
+        <p>This licence does not give Luminari Lab the right to sell, reproduce, or modify your work without your explicit written agreement.</p>
+        <p>You may request removal of your work from the platform at any time by contacting us at <strong>Luminarilab@proton.me</strong>.</p>
+      </div>
+
+      <!-- 04 -->
+      <div class="terms-section" id="membership">
+        <div class="terms-section-num">04</div>
+        <h2>Membership</h2>
+        <p>Luminari Lab offers two participation tiers:</p>
+        <div class="terms-list">
+          <div class="terms-list-item"><div><strong>Free Tier.</strong> Open to all. Work may be submitted and displayed subject to curation. No promotion is guaranteed.</div></div>
+          <div class="terms-list-item"><div><strong>Yearly Membership — K200/year.</strong> Includes guaranteed promotion and visibility, a featured spot on the website, access to the Luminari Lab artist network, and priority consideration for creative cycles.</div></div>
+        </div>
+        <p>Membership fees are <strong>non-refundable</strong> once the membership period has commenced. Membership runs for 12 months from the date of payment.</p>
+        <p>Upon confirmation of payment, members will receive a <strong>private invite link to the Luminari Lab Discord server</strong> — the platform's exclusive artist network. This link is personal and must not be shared with non-members.</p>
+        <p>Membership does not guarantee that all submitted work will be published — curatorial standards still apply. It guarantees promotion of work that is accepted.</p>
+        <p>To enquire about membership, contact us at <strong>Luminarilab@proton.me</strong>. Payment details will be provided upon enquiry.</p>
+      </div>
+
+      <!-- 05 -->
+      <div class="terms-section" id="sales">
+        <div class="terms-section-num">05</div>
+        <h2>Sales & Commission</h2>
+        <p>For works sold through or facilitated by Luminari Lab (including visual art originals, prints, and physical literary works):</p>
+        <div class="terms-highlight">
+          <strong>Artists receive 90% of all sale proceeds.</strong> Luminari Lab retains a 10% facilitation commission to cover platform, promotion, and administrative costs.
+        </div>
+        <p>All sale arrangements are agreed upon in writing between the artist and Luminari Lab before any work is listed for sale. No work will be sold without the artist's explicit consent and agreed pricing.</p>
+        <p>For <strong>visual art originals</strong> — once sold, the physical piece is transferred to the buyer. The artist retains the right to reproduce the work unless otherwise agreed in writing.</p>
+        <p>For <strong>limited edition prints</strong> — the number of prints, pricing, and edition size must be agreed in writing with Luminari Lab before listing.</p>
+        <p>For <strong>literary works</strong> — digital downloads may be offered free of charge for promotional purposes. Physical copies and paid downloads are subject to separate agreement.</p>
+      </div>
+
+      <!-- 06 -->
+      <div class="terms-section" id="music">
+        <div class="terms-section-num">06</div>
+        <h2>Music</h2>
+        <p>Luminari Lab <strong>does not distribute music</strong>. Musicians who submit to Luminari Lab are expected to be self-produced and to have their own distribution in place (e.g. via Amuse, DistroKid, or similar).</p>
+        <p>Luminari Lab promotes music by sharing and featuring your existing links (Spotify, SoundCloud, YouTube etc.) on this platform and its social media channels.</p>
+        <p>Musicians who require production support are directed to <strong>Helio Avenue Records</strong>, which operates independently of Luminari Lab and has its own separate terms and pricing.</p>
+      </div>
+
+      <!-- 07 -->
+      <div class="terms-section" id="ai-policy">
+        <div class="terms-section-num">07</div>
+        <h2>AI & Authenticity Policy</h2>
+        <div class="terms-highlight">
+          <strong>Luminari Lab does not accept AI-generated work in any form.</strong> This applies to all disciplines — music, visual art, writing, poetry, film, and design.
+        </div>
+        <p>We define AI-generated work as any creative output that is substantially produced by artificial intelligence tools including but not limited to image generators, music generators, lyric generators, or text generators.</p>
+        <div class="terms-list">
+          <div class="terms-list-item"><div><strong>Music.</strong> All submitted music must be written, performed, and produced by human artists. AI-generated beats, vocals, melodies, or lyrics are not accepted.</div></div>
+          <div class="terms-list-item"><div><strong>Visual Art.</strong> All submitted visual work must be created by hand or through human-operated tools and software. AI image generation is not accepted.</div></div>
+          <div class="terms-list-item"><div><strong>Writing & Poetry.</strong> All submitted written work must be authored entirely by the submitting artist. AI-generated or AI-assisted text is not accepted.</div></div>
+          <div class="terms-list-item"><div><strong>Mixed use.</strong> Using AI tools for minor editing assistance (e.g. spell check) is acceptable. Using AI to generate or substantially shape the creative content itself is not.</div></div>
+        </div>
+        <p>By submitting your work you confirm that it is <strong>entirely your own human-made creation</strong>. Submission of AI-generated work — whether disclosed or not — will result in immediate removal from the platform and disqualification from future cycles.</p>
+        <p>Luminari Lab exists to promote authentic human creativity. This policy is non-negotiable.</p>
+      </div>
+
+      <!-- 08 -->
+      <div class="terms-section" id="conduct">
+        <div class="terms-section-num">08</div>
+        <h2>Code of Conduct</h2>
+        <p>Luminari Lab is committed to being a safe, professional, and equitable space for all creatives. All participants — artists, members, collaborators, and visitors — are expected to uphold the following:</p>
+        <div class="terms-list">
+          <div class="terms-list-item"><div><strong>No harassment or exploitation.</strong> Any form of harassment, coercion, or exploitation of any participant will result in immediate removal from the platform.</div></div>
+          <div class="terms-list-item"><div><strong>Respectful conduct.</strong> All interactions within the Luminari Lab network must be conducted with professionalism and mutual respect.</div></div>
+          <div class="terms-list-item"><div><strong>Equity first.</strong> We actively prioritise equitable access for women and marginalised creatives. Discrimination of any kind is not tolerated.</div></div>
+          <div class="terms-list-item"><div><strong>Complaints.</strong> All complaints and reports are investigated confidentially with zero retaliation against the reporting party.</div></div>
+        </div>
+        <p>Luminari Lab reserves the right to remove any artist, member, or work from the platform at any time if these standards are violated.</p>
+      </div>
+
+      <!-- 09 -->
+      <div class="terms-section" id="contact-terms">
+        <div class="terms-section-num">09</div>
+        <h2>Contact & Disputes</h2>
+        <p>For any questions, concerns, or disputes relating to these terms, please contact us at:</p>
+        <div class="terms-highlight">
+          <strong>Luminari Lab / Helio Avenue Records</strong><br>
+          Email: <a href="mailto:Luminarilab@proton.me" style="color:var(--lavender);">Luminarilab@proton.me</a><br>
+          Location: Lusaka, Zambia
+        </div>
+        <p>These terms are subject to change. Artists and members will be notified of significant changes via email. Continued use of the platform constitutes acceptance of updated terms.</p>
+
+        <div class="terms-updated">Last updated — 2025 · Luminari Lab / Helio Avenue Records</div>
+      </div>
+
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-brand">
+      <div style="display:flex;align-items:center;gap:12px;">
+        <div class="logo-icon">✦</div>
+        <span class="logo-text">Luminari Lab</span>
+      </div>
+      <p>A structured creative incubation platform for emerging Zambian artists. By Helio Avenue Records, Lusaka.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navigate</h4>
+      <a href="about.html">About</a>
+      <a href="cycles.html">Cycles</a>
+      <a href="artists.html">Artists</a>
+      <a href="works.html">Published Works</a>
+    </div>
+    <div class="footer-col">
+      <h4>Connect</h4>
+      <a href="submit.html">Submit Work</a>
+      <a href="contact.html">Contact & Partnerships</a>
+      <a href="#">@luminarilab</a>
+      <a href="#">Helio Avenue Records</a>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Luminari Lab / Helio Avenue Records · Lusaka, Zambia</span>
+      <span>Artistic excellence and participant safety, equally upheld.</span>
+    </div>
+  </footer>
+</div>
+
+<script src="shared.js"></script>
+</body>
+</html>

@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luminari Lab — Artists</title>
+<link rel="stylesheet" href="shared.css">
+<style>
+.artists-hero {
+  padding: 140px 52px 80px;
+  position: relative; z-index: 5;
+  border-bottom: 1px solid var(--soft-border);
+}
+.artists-hero-inner {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: end;
+}
+.artists-hero .s-title { font-size: clamp(3rem, 6vw, 6rem); }
+.artists-hero-right p { font-size: 0.8rem; color: var(--mist); line-height: 2; }
+
+.artists-section {
+  position: relative; z-index: 5;
+  padding: 100px 52px;
+}
+
+/* ARTIST PROFILE CARD */
+.artist-profile {
+  display: grid; grid-template-columns: 1fr 1.6fr; gap: 80px;
+  align-items: start;
+  padding-bottom: 100px;
+  border-bottom: 1px solid var(--soft-border);
+}
+
+.artist-identity {
+  position: sticky; top: 120px;
+  display: flex; flex-direction: column; gap: 28px;
+}
+
+.artist-name-block {
+  background: var(--card-bg); border: 1px solid var(--soft-border);
+  border-radius: 20px; padding: 48px 40px;
+  text-align: center; position: relative; overflow: hidden;
+}
+.artist-name-block::before {
+  content: '✦';
+  position: absolute; top: -20px; right: -10px;
+  font-size: 8rem; color: rgba(184,157,232,0.05);
+  font-family: 'Cormorant Garamond', serif;
+  pointer-events: none;
+}
+.artist-initial {
+  width: 88px; height: 88px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--violet), var(--sky));
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Cormorant Garamond', serif; font-size: 2.8rem;
+  color: var(--cream); margin: 0 auto 24px;
+}
+.artist-full-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.6rem; font-weight: 300; color: var(--cream);
+  line-height: 1.3; margin-bottom: 6px;
+}
+.artist-known-as {
+  font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--lavender); margin-bottom: 20px;
+}
+.artist-location {
+  font-size: 0.68rem; color: var(--mist); display: flex;
+  align-items: center; justify-content: center; gap: 8px;
+}
+.artist-location::before { content: '◎'; color: var(--glow); font-size: 0.8rem; }
+
+.artist-disciplines {
+  display: flex; flex-wrap: wrap; gap: 8px; justify-content: center;
+  margin-top: 20px; padding-top: 20px;
+  border-top: 1px solid var(--soft-border);
+}
+.discipline-tag {
+  font-size: 0.58rem; letter-spacing: 0.14em; text-transform: uppercase;
+  padding: 6px 14px; border-radius: 100px;
+  background: rgba(184,157,232,0.08); border: 1px solid rgba(184,157,232,0.2);
+  color: var(--lavender);
+}
+
+.artist-works-count {
+  background: var(--card-bg); border: 1px solid var(--soft-border);
+  border-radius: 12px; padding: 20px 24px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.artist-works-count .stat-n {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.2rem; font-weight: 300; color: var(--cream);
+}
+.artist-works-count .stat-l {
+  font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--lavender);
+}
+
+/* RIGHT SIDE — BIO + WORKS */
+.artist-detail { display: flex; flex-direction: column; gap: 48px; }
+
+.artist-bio-section {}
+.artist-bio-section .s-label { margin-bottom: 20px; }
+.artist-bio-text {
+  font-size: 0.82rem; color: var(--mist); line-height: 2.1;
+}
+
+.artist-works-section {}
+.artist-works-section .s-label { margin-bottom: 24px; }
+.artist-work-item {
+  display: flex; gap: 20px; align-items: center;
+  padding: 20px 24px;
+  background: var(--card-bg); border: 1px solid var(--soft-border);
+  border-radius: 12px; margin-bottom: 12px;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.23,1,0.32,1);
+}
+.artist-work-item:hover { border-color: rgba(184,157,232,0.35); transform: translateX(6px); }
+.work-item-icon {
+  width: 44px; height: 44px; border-radius: 10px; flex-shrink: 0;
+  background: linear-gradient(135deg, #180d35, #3d2478);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.2rem;
+}
+.work-item-info { flex: 1; }
+.work-item-title {
+  font-family: 'Cormorant Garamond', serif; font-size: 1.1rem;
+  color: var(--cream); margin-bottom: 3px;
+}
+.work-item-meta { font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--lavender); }
+.work-item-arrow { color: var(--lavender); font-size: 0.8rem; transition: color 0.2s; }
+.artist-work-item:hover .work-item-arrow { color: var(--glow); }
+
+/* COMING SOON STRIP */
+.coming-soon-strip {
+  position: relative; z-index: 5;
+  margin: 0 52px 100px;
+  border: 1px solid var(--soft-border);
+  border-radius: 24px; padding: 72px 64px;
+  text-align: center;
+}
+.coming-soon-strip h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.8rem, 3.5vw, 3rem); font-weight: 300; margin-bottom: 16px;
+}
+.coming-soon-strip h2 em { font-style: italic; color: var(--glow); }
+.coming-soon-strip p { font-size: 0.78rem; color: var(--mist); line-height: 2; max-width: 480px; margin: 0 auto 32px; }
+
+@media (max-width: 900px) {
+  .artists-hero { padding: 120px 24px 60px; }
+  .artists-hero-inner { grid-template-columns: 1fr; gap: 32px; }
+  .artists-section { padding: 60px 24px; }
+  .artist-profile { grid-template-columns: 1fr; gap: 40px; }
+  .artist-identity { position: static; }
+  .coming-soon-strip { margin: 0 24px 60px; padding: 48px 28px; }
+}
+</style>
+</head>
+<body>
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+<div class="starfield" id="starfield"></div>
+<div class="orb orb-1"></div><div class="orb orb-2"></div><div class="orb orb-3"></div>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <div class="logo-icon">✦</div>
+    <span class="logo-text">Luminari Lab</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="cycles.html">Cycles</a></li>
+    <li><a href="artists.html" class="active">Artists</a></li>
+    <li><a href="works.html">Published Works</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="submit.html" class="nav-cta">Submit Work</a></li>
+  </ul>
+</nav>
+
+<div class="page">
+
+  <!-- HERO -->
+  <section class="artists-hero">
+    <div class="artists-hero-inner">
+      <div>
+        <div class="s-label">Our Artists</div>
+        <h1 class="s-title">The voices behind the <em>work.</em></h1>
+      </div>
+      <div class="artists-hero-right">
+        <p>Every artist featured here has contributed to a Luminari Lab cycle. These are the creators, thinkers, and storytellers building Zambia's next creative chapter.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ARTIST PROFILES -->
+  <section class="artists-section">
+    <div class="artist-profile reveal">
+
+      <!-- LEFT — IDENTITY -->
+      <div class="artist-identity">
+        <div class="artist-name-block">
+          <div class="artist-initial">K</div>
+          <div class="artist-full-name">Kennedy Chapingiza<br>Taonga Njobvu III</div>
+          <div class="artist-known-as">KC Njobvu &nbsp;·&nbsp; KC Ilgtmt</div>
+          <div class="artist-location">Copperbelt, Zambia</div>
+          <div class="artist-disciplines">
+            <span class="discipline-tag">Music</span>
+            <span class="discipline-tag">Poetry</span>
+            <span class="discipline-tag">Graphic Design</span>
+            <span class="discipline-tag">Film</span>
+          </div>
+        </div>
+        <div class="artist-works-count">
+          <div>
+            <div class="stat-n">01</div>
+            <div class="stat-l">Published Works</div>
+          </div>
+          <a href="works.html" class="btn btn-ghost" style="font-size:0.62rem;">View Works →</a>
+        </div>
+      </div>
+
+      <!-- RIGHT — BIO + WORKS -->
+      <div class="artist-detail">
+        <div class="artist-bio-section">
+          <div class="s-label">About the Artist</div>
+          <p class="artist-bio-text">Kennedy Chapingiza Taonga Njobvu III — known as KC Njobvu and KC Ilgtmt — is a multi-hyphenated artist from the Copperbelt. He uses music, graphic design, poetry, and film to heal and reveal the world. His work moves across disciplines without apology, finding connection in the space between sound, image, and language.</p>
+        </div>
+
+        <div class="artist-works-section">
+          <div class="s-label">Published Works</div>
+          <a href="works.html" class="artist-work-item">
+            <div class="work-item-icon">✦</div>
+            <div class="work-item-info">
+              <div class="work-item-title">Darlin.</div>
+              <div class="work-item-meta">Poetry · Cycle 01 · Afronaut</div>
+            </div>
+            <div class="work-item-arrow">→</div>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- MORE COMING SOON -->
+  <div class="coming-soon-strip">
+    <h2>More artists <em>coming soon.</em></h2>
+    <p>We are actively selecting artists from our first cycle. New profiles will be added as submissions are curated and published.</p>
+    <a href="submit.html" class="btn btn-fill">Submit Your Work →</a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-brand">
+      <div style="display:flex;align-items:center;gap:12px;">
+        <div class="logo-icon">✦</div>
+        <span class="logo-text">Luminari Lab</span>
+      </div>
+      <p>A structured creative incubation platform for emerging Zambian artists. By Helio Avenue Records, Lusaka.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navigate</h4>
+      <a href="about.html">About</a>
+      <a href="cycles.html">Cycles</a>
+      <a href="artists.html">Artists</a>
+      <a href="works.html">Published Works</a>
+    </div>
+    <div class="footer-col">
+      <h4>Connect</h4>
+      <a href="submit.html">Submit Work</a>
+      <a href="contact.html">Contact & Partnerships</a>
+      <a href="#">@luminarilab</a>
+      <a href="#">Helio Avenue Records</a>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Luminari Lab / Helio Avenue Records · Lusaka, Zambia</span>
+      <span>Artistic excellence and participant safety, equally upheld.</span>
+    </div>
+  </footer>
+</div>
+
+<script src="shared.js"></script>
+</body>
+</html>
